@@ -317,7 +317,7 @@ func parseCloudAccount(d *schema.ResourceData, id string) (string, string, inter
 
 		return account.TypeGcp, x["name"].(string), account.Gcp{
 			Account: account.CloudAccount{
-				AccountId: id,
+				AccountId: x["account_id"].(string),
 				Enabled:   x["enabled"].(bool),
 				GroupIds:  ListToStringSlice(x["group_ids"].([]interface{})),
 				Name:      x["name"].(string),
