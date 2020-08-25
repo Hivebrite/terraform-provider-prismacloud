@@ -214,6 +214,11 @@ func resourceIntegration() *schema.Resource {
 							Optional:    true,
 							Description: "PagerDuty integration key",
 						},
+						"webhook_url": {
+							Type:        schema.TypeString,
+							Optional:    true,
+							Description: "Slack webhook url",
+						},
 					},
 				},
 			},
@@ -265,6 +270,7 @@ func parseIntegration(d *schema.ResourceData, id string) integration.Integration
 			Headers:        headers,
 			AuthToken:      ic["auth_token"].(string),
 			IntegrationKey: ic["integration_key"].(string),
+			WebHookUrl:     ic["webhook_url"].(string),
 		},
 		Enabled: d.Get("enabled").(bool),
 	}
