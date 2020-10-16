@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"testing"
 
-	pc "github.com/paloaltonetworks/prisma-cloud-go"
-	"github.com/paloaltonetworks/prisma-cloud-go/settings/enterprise"
+	pc "github.com/hivebrite/prisma-cloud-go"
+	"github.com/hivebrite/prisma-cloud-go/settings/enterprise"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/resource"
 	"github.com/hashicorp/terraform-plugin-sdk/terraform"
