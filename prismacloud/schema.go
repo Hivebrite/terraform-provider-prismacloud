@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/paloaltonetworks/prisma-cloud-go/timerange"
+	"github.com/hivebrite/prisma-cloud-go/timerange"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/validation"

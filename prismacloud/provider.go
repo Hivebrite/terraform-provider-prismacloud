@@ -3,7 +3,7 @@ package prismacloud
 import (
 	"fmt"
 
-	pc "github.com/paloaltonetworks/prisma-cloud-go"
+	pc "github.com/hivebrite/prisma-cloud-go"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/validation"

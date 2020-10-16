@@ -4,8 +4,8 @@ import (
 	"log"
 	"strconv"
 
-	pc "github.com/paloaltonetworks/prisma-cloud-go"
-	"github.com/paloaltonetworks/prisma-cloud-go/rql/history"
+	pc "github.com/hivebrite/prisma-cloud-go"
+	"github.com/hivebrite/prisma-cloud-go/rql/history"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/validation"

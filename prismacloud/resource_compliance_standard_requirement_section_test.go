@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	pc "github.com/paloaltonetworks/prisma-cloud-go"
-	"github.com/paloaltonetworks/prisma-cloud-go/compliance/standard/requirement/section"
+	pc "github.com/hivebrite/prisma-cloud-go"
+	"github.com/hivebrite/prisma-cloud-go/compliance/standard/requirement/section"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/resource"
