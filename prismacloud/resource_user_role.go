@@ -3,8 +3,8 @@ package prismacloud
 import (
 	"log"
 
-	pc "github.com/hivebrite/prisma-cloud-go"
-	"github.com/hivebrite/prisma-cloud-go/user/role"
+	pc "github.com/paloaltonetworks/prisma-cloud-go"
+	"github.com/paloaltonetworks/prisma-cloud-go/user/role"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/validation"

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/hivebrite/prisma-cloud-go/cloud/account"
+	"github.com/paloaltonetworks/prisma-cloud-go/cloud/account"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/acctest"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/resource"

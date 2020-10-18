@@ -1,15 +1,15 @@
 package prismacloud
 
 import (
-	pc "github.com/hivebrite/prisma-cloud-go"
-	"github.com/hivebrite/prisma-cloud-go/policy"
-	"github.com/hivebrite/prisma-cloud-go/rql/history"
-	"github.com/hivebrite/prisma-cloud-go/rql/search/config"
+	pc "github.com/paloaltonetworks/prisma-cloud-go"
+	"github.com/paloaltonetworks/prisma-cloud-go/policy"
+	"github.com/paloaltonetworks/prisma-cloud-go/rql/history"
+	"github.com/paloaltonetworks/prisma-cloud-go/rql/search/config"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 )
 
-func resourcePolicy() *schema.Resource {
+func resourceConfigSearch() *schema.Resource {
 	return &schema.Resource{
 		Create: createSearch,
 		Read:   readSearch,
@@ -46,13 +46,13 @@ func parseSearch(d *schema.ResourceData, id string) history.Query {
 	ans := history.Query{
 		Name:        d.Get("name").(string),
 		Description: d.Get("description").(string),
-		Query:       d.Get("query").(bool),
+		Query:       d.Get("query").(string),
 	}
 
 	return ans
 }
 
-func saveSearch(d *schema.ResourceData, obj history.Search) {
+func saveSearch(d *schema.ResourceData, obj history.Query) {
 	d.Set("search_id", obj.Id)
 	d.Set("name", obj.Name)
 	d.Set("description", obj.Description)
@@ -80,7 +80,7 @@ func readSearch(d *schema.ResourceData, meta interface{}) error {
 	client := meta.(*pc.Client)
 	id := d.Id()
 
-	obj, err := policy.Get(client, id)
+	obj, err := history.Get(client, id)
 	if err != nil {
 		if err == pc.ObjectNotFoundError {
 			d.SetId("")

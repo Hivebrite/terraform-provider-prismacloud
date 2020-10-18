@@ -3,7 +3,7 @@ package prismacloud
 import (
 	"fmt"
 
-	pc "github.com/hivebrite/prisma-cloud-go"
+	pc "github.com/paloaltonetworks/prisma-cloud-go"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/validation"
@@ -126,6 +126,7 @@ func Provider() terraform.ResourceProvider {
 			"prismacloud_integration":                             resourceIntegration(),
 			"prismacloud_policy":                                  resourcePolicy(),
 			"prismacloud_user_role":                               resourceUserRole(),
+			"prismacloud_rql_config_search":                       resourceConfigSearch(),
 		},
 
 		ConfigureFunc: providerConfigure,
