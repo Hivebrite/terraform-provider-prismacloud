@@ -5,8 +5,8 @@ import (
 	"log"
 	"time"
 
-	pc "github.com/hivebrite/prisma-cloud-go"
-	"github.com/hivebrite/prisma-cloud-go/cloud/account"
+	pc "github.com/paloaltonetworks/prisma-cloud-go"
+	"github.com/paloaltonetworks/prisma-cloud-go/cloud/account"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 )

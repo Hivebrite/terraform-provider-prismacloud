@@ -3,9 +3,9 @@ package prismacloud
 import (
 	"log"
 
-	pc "github.com/hivebrite/prisma-cloud-go"
-	"github.com/hivebrite/prisma-cloud-go/alert"
-	"github.com/hivebrite/prisma-cloud-go/timerange"
+	pc "github.com/paloaltonetworks/prisma-cloud-go"
+	"github.com/paloaltonetworks/prisma-cloud-go/alert"
+	"github.com/paloaltonetworks/prisma-cloud-go/timerange"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 )
