@@ -51,8 +51,8 @@ func resourceRqlSavedSearch() *schema.Resource {
 	}
 }
 
-func parseRqlSearch(d *schema.ResourceData, id string) history.PostQuery {
-	ans := history.PostQuery{
+func parseRqlSearch(d *schema.ResourceData, id string) history.Query {
+	ans := history.Query{
 		Name:        d.Get("name").(string),
 		Description: d.Get("description").(string),
 		Query:       d.Get("query").(string),
