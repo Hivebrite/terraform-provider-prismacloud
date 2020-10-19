@@ -127,6 +127,7 @@ func Provider() terraform.ResourceProvider {
 			"prismacloud_policy":                                  resourcePolicy(),
 			"prismacloud_user_role":                               resourceUserRole(),
 			"prismacloud_rql_config_search":                       resourceConfigSearch(),
+			"prismacloud_rql_saved_search":                        resourceRqlSavedSearch(),
 		},
 
 		ConfigureFunc: providerConfigure,
