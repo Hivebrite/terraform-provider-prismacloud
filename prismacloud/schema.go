@@ -52,10 +52,6 @@ func timeRangeSchema(style string) *schema.Schema {
 					false,
 				),
 			},
-			"relative_time_type": {
-				Type:        schema.TypeString,
-				Description: "Relative time type",
-			},
 		},
 	}
 
@@ -132,7 +128,6 @@ func timeRangeSchema(style string) *schema.Schema {
 		model.Schema["relative"].Optional = true
 		relative_resource.Schema["amount"].Required = true
 		relative_resource.Schema["unit"].Required = true
-		delete(relative_resource.Schema, "relative_time_type")
 
 		model.Schema["to_now"].Optional = true
 		to_now_resource.Schema["unit"].Required = true
@@ -147,10 +142,25 @@ func timeRangeSchema(style string) *schema.Schema {
 		relative_resource.Schema["amount"].Computed = true
 		relative_resource.Schema["unit"].Computed = true
 		relative_resource.Schema["unit"].ValidateFunc = nil
-		relative_resource.Schema["relative_time_type"].Computed = true
 
 		model.Schema["to_now"].Computed = true
 		to_now_resource.Schema["unit"].Computed = true
+		to_now_resource.Schema["unit"].ValidateFunc = nil
+	case "resource_rql_historic_search":
+		ans.Required = true
+		ans.ForceNew = true
+
+		model.Schema["absolute"].Optional = true
+		absolute_resource.Schema["start"].Required = true
+		absolute_resource.Schema["end"].Required = true
+
+		model.Schema["relative"].Optional = true
+		relative_resource.Schema["amount"].Required = true
+		relative_resource.Schema["unit"].Required = true
+		relative_resource.Schema["unit"].ValidateFunc = nil
+
+		model.Schema["to_now"].Optional = true
+		to_now_resource.Schema["unit"].Required = true
 		to_now_resource.Schema["unit"].ValidateFunc = nil
 	}
 
@@ -176,9 +186,8 @@ func flattenTimeRange(t timerange.TimeRange) []interface{} {
 		}}
 	case timerange.Relative:
 		val["relative"] = []interface{}{map[string]interface{}{
-			"amount":             v.Amount,
-			"unit":               v.Unit,
-			"relative_time_type": t.RelativeTimeType,
+			"amount": v.Amount,
+			"unit":   v.Unit,
 		}}
 	case timerange.ToNow:
 		val["to_now"] = []interface{}{map[string]interface{}{
