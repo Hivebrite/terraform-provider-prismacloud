@@ -4,12 +4,11 @@ import (
 	pc "github.com/paloaltonetworks/prisma-cloud-go"
 	"github.com/paloaltonetworks/prisma-cloud-go/rql/history"
 	"github.com/paloaltonetworks/prisma-cloud-go/rql/search"
-	"github.com/paloaltonetworks/prisma-cloud-go/rql/search/config"
 
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 )
 
-func resourceConfigSearch() *schema.Resource {
+func resourceSearch() *schema.Resource {
 	return &schema.Resource{
 		Create: createSearch,
 		Read:   readSearch,
@@ -29,7 +28,7 @@ func resourceConfigSearch() *schema.Resource {
 			},
 			"search_type": {
 				Type:        schema.TypeString,
-				Computed:    true,
+				Required:    true,
 				Description: "RQL type",
 			},
 			//"time_range": timeRangeSchema("data_source_rql_historic_search"),
@@ -40,7 +39,7 @@ func resourceConfigSearch() *schema.Resource {
 func parseSearch(d *schema.ResourceData, id string) history.Query {
 	ans := history.Query{
 		Query:      d.Get("query").(string),
-		SearchType: "config",
+		SearchType: d.Get("search_type").(string),
 	}
 
 	return ans
@@ -58,7 +57,7 @@ func createSearch(d *schema.ResourceData, meta interface{}) error {
 	client := meta.(*pc.Client)
 	obj := parseSearch(d, "")
 
-	if err := config.Create(client, obj); err != nil {
+	if err := search.Create(client, obj); err != nil {
 		return err
 	}
 
