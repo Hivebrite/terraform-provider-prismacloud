@@ -21,9 +21,14 @@ func resourceRqlSavedSearch() *schema.Resource {
 				Required:    true,
 				Description: "RQL config search name",
 			},
-			"search_id": {
+			"rql_search_id": {
 				Type:        schema.TypeString,
 				Required:    true,
+				Description: "RQL ID",
+			},
+			"search_id": {
+				Type:        schema.TypeString,
+				Computed:    true,
 				Description: "RQL ID",
 			},
 			"description": {
@@ -38,7 +43,7 @@ func resourceRqlSavedSearch() *schema.Resource {
 			},
 			"search_type": {
 				Type:        schema.TypeString,
-				Required:    true,
+				Computed:    true,
 				Description: "RQL type",
 			},
 			"saved": {
@@ -56,7 +61,6 @@ func parseRqlSearch(d *schema.ResourceData, id string) history.Query {
 		Name:        d.Get("name").(string),
 		Description: d.Get("description").(string),
 		Query:       d.Get("query").(string),
-		SearchType:  d.Get("search_type").(string),
 		Saved:       true,
 	}
 
@@ -96,7 +100,7 @@ func createRqlSearch(d *schema.ResourceData, meta interface{}) error {
 	client := meta.(*pc.Client)
 	obj := parseRqlSearch(d, "")
 
-	if err := history.Create(client, obj, d.Get("search_id").(string)); err != nil {
+	if err := history.Create(client, obj, d.Get("rql_search_id").(string)); err != nil {
 		return err
 	}
 
