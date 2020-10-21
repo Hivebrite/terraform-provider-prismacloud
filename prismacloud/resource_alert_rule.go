@@ -201,7 +201,7 @@ func resourceAlertRule() *schema.Resource {
 					Schema: map[string]*schema.Schema{
 						"config_id": {
 							Type:        schema.TypeString,
-							Optional:    true,
+							Computed:    true,
 							Description: "Alert rule notification config ID",
 						},
 						"frequency": {
@@ -291,6 +291,7 @@ func resourceAlertRule() *schema.Resource {
 						"day_of_month": {
 							Type:        schema.TypeInt,
 							Optional:    true,
+							Default:     1,
 							Description: "Day of month",
 						},
 						"r_rule_schedule": {
@@ -317,12 +318,14 @@ func resourceAlertRule() *schema.Resource {
 									"day": {
 										Type:        schema.TypeString,
 										Optional:    true,
+										Default:     "MO",
 										Description: "Day",
 									},
 									"offset": {
 										Type:        schema.TypeInt,
 										Optional:    true,
 										Description: "Offset",
+										Default:     0,
 									},
 								},
 							},
