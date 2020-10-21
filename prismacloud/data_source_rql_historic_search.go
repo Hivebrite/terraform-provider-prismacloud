@@ -96,6 +96,9 @@ func dataSourceRqlHistoricSearchRead(d *schema.ResourceData, meta interface{}) e
 	d.Set("cloud_type", o.CloudType)
 	d.Set("query", o.Query)
 	d.Set("saved", o.Saved)
+	if err = d.Set("time_range", flattenTimeRange(o.TimeRange)); err != nil {
+		log.Printf("[WARN] Error setting 'time_range' for %q: %s", d.Id(), err)
+	}
 
 	return nil
 }
