@@ -320,6 +320,7 @@ func saveIntegration(d *schema.ResourceData, o integration.Integration) {
 		"headers":         nil,
 		"auth_token":      o.IntegrationConfig.AuthToken,
 		"integration_key": o.IntegrationConfig.IntegrationKey,
+		"webhook_url":     o.IntegrationConfig.WebHookUrl,
 	}
 	if len(o.IntegrationConfig.Tables) != 0 {
 		tables := make(map[string]interface{})
