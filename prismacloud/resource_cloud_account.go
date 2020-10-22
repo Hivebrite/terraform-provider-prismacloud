@@ -60,7 +60,7 @@ func resourceCloudAccount() *schema.Resource {
 							Sensitive:   true,
 						},
 						"group_ids": {
-							Type:        schema.TypeList,
+							Type:        schema.TypeSet,
 							Required:    true,
 							Description: "List of account IDs to which you are assigning this account",
 							Elem: &schema.Schema{
@@ -106,7 +106,7 @@ func resourceCloudAccount() *schema.Resource {
 							Default:     true,
 						},
 						"group_ids": {
-							Type:        schema.TypeList,
+							Type:        schema.TypeSet,
 							Required:    true,
 							Description: "List of account IDs to which you are assigning this account",
 							Elem: &schema.Schema{
@@ -172,7 +172,7 @@ func resourceCloudAccount() *schema.Resource {
 							Default:     true,
 						},
 						"group_ids": {
-							Type:        schema.TypeList,
+							Type:        schema.TypeSet,
 							Required:    true,
 							Description: "List of account IDs to which you are assigning this account",
 							Elem: &schema.Schema{
@@ -231,7 +231,7 @@ func resourceCloudAccount() *schema.Resource {
 							Description: "Alibaba account ID",
 						},
 						"group_ids": {
-							Type:        schema.TypeList,
+							Type:        schema.TypeSet,
 							Required:    true,
 							Description: "List of account IDs to which you are assigning this account",
 							Elem: &schema.Schema{
@@ -278,7 +278,6 @@ func gcpCredentialsMatch(k, old, new string, d *schema.ResourceData) bool {
 	return (prev.Type == cur.Type &&
 		prev.ProjectId == cur.ProjectId &&
 		prev.PrivateKeyId == cur.PrivateKeyId &&
-		prev.PrivateKey == cur.PrivateKey &&
 		prev.ClientEmail == cur.ClientEmail &&
 		prev.ClientId == cur.ClientId &&
 		prev.AuthUri == cur.AuthUri &&
@@ -293,7 +292,7 @@ func parseCloudAccount(d *schema.ResourceData, id string) (string, string, inter
 			AccountId:  id,
 			Enabled:    x["enabled"].(bool),
 			ExternalId: x["external_id"].(string),
-			GroupIds:   ListToStringSlice(x["group_ids"].([]interface{})),
+			GroupIds:   SetToStringSlice(x["group_ids"].(*schema.Set)),
 			Name:       x["name"].(string),
 			RoleArn:    x["role_arn"].(string),
 		}
@@ -302,7 +301,7 @@ func parseCloudAccount(d *schema.ResourceData, id string) (string, string, inter
 			Account: account.CloudAccount{
 				AccountId: id,
 				Enabled:   x["enabled"].(bool),
-				GroupIds:  ListToStringSlice(x["group_ids"].([]interface{})),
+				GroupIds:  SetToStringSlice(x["group_ids"].(*schema.Set)),
 				Name:      x["name"].(string),
 			},
 			ClientId:           x["client_id"].(string),
@@ -319,7 +318,7 @@ func parseCloudAccount(d *schema.ResourceData, id string) (string, string, inter
 			Account: account.CloudAccount{
 				AccountId: x["account_id"].(string),
 				Enabled:   x["enabled"].(bool),
-				GroupIds:  ListToStringSlice(x["group_ids"].([]interface{})),
+				GroupIds:  SetToStringSlice(x["group_ids"].(*schema.Set)),
 				Name:      x["name"].(string),
 			},
 			CompressionEnabled:     x["compression_enabled"].(bool),
@@ -330,7 +329,7 @@ func parseCloudAccount(d *schema.ResourceData, id string) (string, string, inter
 	} else if x := ResourceDataInterfaceMap(d, account.TypeAlibaba); len(x) != 0 {
 		return account.TypeAlibaba, x["name"].(string), account.Alibaba{
 			AccountId: id,
-			GroupIds:  ListToStringSlice(x["group_ids"].([]interface{})),
+			GroupIds:  SetToStringSlice(x["group_ids"].(*schema.Set)),
 			Name:      x["name"].(string),
 			RamArn:    x["ram_arn"].(string),
 			Enabled:   x["enabled"].(bool),

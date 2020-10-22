@@ -270,19 +270,19 @@ func resourcePolicy() *schema.Resource {
 				},
 			},
 			"compliance_metadata": {
-				Type:        schema.TypeList,
+				Type:        schema.TypeSet,
 				Optional:    true,
 				Description: "List of compliance data. Each item has compliance standard, requirement, and/or section information",
 				Elem: &schema.Resource{
 					Schema: map[string]*schema.Schema{
 						"standard_name": {
 							Type:        schema.TypeString,
-							Optional:    true,
+							Computed:    true,
 							Description: "Compliance standard name",
 						},
 						"standard_description": {
 							Type:        schema.TypeString,
-							Optional:    true,
+							Computed:    true,
 							Description: "Compliance standard description",
 						},
 						"requirement_id": {
@@ -292,12 +292,12 @@ func resourcePolicy() *schema.Resource {
 						},
 						"requirement_name": {
 							Type:        schema.TypeString,
-							Optional:    true,
+							Computed:    true,
 							Description: "Requirement name",
 						},
 						"requirement_description": {
 							Type:        schema.TypeString,
-							Optional:    true,
+							Computed:    true,
 							Description: "Requirement description",
 						},
 						"section_id": {
@@ -307,12 +307,12 @@ func resourcePolicy() *schema.Resource {
 						},
 						"section_description": {
 							Type:        schema.TypeString,
-							Optional:    true,
+							Computed:    true,
 							Description: "Section description",
 						},
 						"policy_id": {
 							Type:        schema.TypeString,
-							Optional:    true,
+							Computed:    true,
 							Description: "Policy ID",
 						},
 						"compliance_id": {
@@ -327,7 +327,7 @@ func resourcePolicy() *schema.Resource {
 						},
 						"custom_assigned": {
 							Type:        schema.TypeBool,
-							Optional:    true,
+							Computed:    true,
 							Description: "Custom assigned",
 						},
 					},
@@ -388,7 +388,7 @@ func parsePolicy(d *schema.ResourceData, id string) policy.Policy {
 		}
 	}
 
-	cms := d.Get("compliance_metadata").([]interface{})
+	cms := d.Get("compliance_metadata").(*schema.Set).List()
 	ans.ComplianceMetadata = make([]policy.ComplianceMetadata, 0, len(cms))
 	for _, csmi := range cms {
 		cmd := csmi.(map[string]interface{})
