@@ -108,6 +108,8 @@ github.com/hivebrite/prisma-cloud-go v0.3.10-0.20201021123750-ecabe6dbd250 h1:wQ
 github.com/hivebrite/prisma-cloud-go v0.3.10-0.20201021123750-ecabe6dbd250/go.mod h1:oPzCp3Q7HxC0xkWflyBdk2tm9kHzRDheiCnv3T0FCb8=
 github.com/hivebrite/prisma-cloud-go v0.3.10-0.20201021160311-01bf0c7a74f9 h1:xBXH4ywA/jKPI0a96ljFEJRq4LI6NuNZRDIjlATBYJA=
 github.com/hivebrite/prisma-cloud-go v0.3.10-0.20201021160311-01bf0c7a74f9/go.mod h1:oPzCp3Q7HxC0xkWflyBdk2tm9kHzRDheiCnv3T0FCb8=
+github.com/hivebrite/prisma-cloud-go v0.3.10-0.20201022080149-9471379f9a37 h1:2H2TkbxVBtJUNpkUXSePFhfvPfFYr3+LY1Fxc81Lqp0=
+github.com/hivebrite/prisma-cloud-go v0.3.10-0.20201022080149-9471379f9a37/go.mod h1:oPzCp3Q7HxC0xkWflyBdk2tm9kHzRDheiCnv3T0FCb8=
 github.com/jmespath/go-jmespath v0.0.0-20160202185014-0b12d6b521d8/go.mod h1:Nht3zPeWKUH0NzdCt2Blrr5ys8VGpn0CEB0cQHVjt7k=
 github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af h1:pmfjZENx5imkbgOkpRUYLnmbU7UEFbjtDA2hxJ1ichM=
 github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af/go.mod h1:Nht3zPeWKUH0NzdCt2Blrr5ys8VGpn0CEB0cQHVjt7k=
