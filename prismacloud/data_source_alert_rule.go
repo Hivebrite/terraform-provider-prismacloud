@@ -250,10 +250,10 @@ func dataSourceAlertRule() *schema.Resource {
 							Computed:    true,
 							Description: "Template ID",
 						},
-						"timezone_id": {
+						"timezone": {
 							Type:        schema.TypeString,
 							Computed:    true,
-							Description: "Timezone ID",
+							Description: "Timezone",
 						},
 						"day_of_month": {
 							Type:        schema.TypeInt,

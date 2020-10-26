@@ -283,10 +283,10 @@ func resourceAlertRule() *schema.Resource {
 							Optional:    true,
 							Description: "Template ID",
 						},
-						"timezone_id": {
+						"timezone": {
 							Type:        schema.TypeString,
 							Optional:    true,
-							Description: "Timezone ID",
+							Description: "Timezone",
 						},
 						"day_of_month": {
 							Type:        schema.TypeInt,
@@ -429,9 +429,7 @@ func parseAlertRule(d *schema.ResourceData, id string) rule.Rule {
 				IncludeRemediation: nc["include_remediation"].(bool),
 				Type:               nc["config_type"].(string),
 				TemplateId:         nc["template_id"].(string),
-				Timezone: rule.Timezone{
-					Id: nc["timezone_id"].(string),
-				},
+				Timezone:           nc["timezone"].(string),
 				DayOfMonth:         nc["day_of_month"].(int),
 				RruleSchedule:      nc["r_rule_schedule"].(string),
 				FrequencyFromRrule: nc["frequency_from_r_rule"].(string),
@@ -526,7 +524,7 @@ func saveAlertRule(d *schema.ResourceData, o rule.Rule) {
 				"last_sent_ts":          nc.LastSentTs,
 				"config_type":           nc.Type,
 				"template_id":           nc.TemplateId,
-				"timezone_id":           nc.Timezone.Id,
+				"timezone":              nc.Timezone,
 				"day_of_month":          nc.DayOfMonth,
 				"r_rule_schedule":       nc.RruleSchedule,
 				"frequency_from_r_rule": nc.FrequencyFromRrule,
