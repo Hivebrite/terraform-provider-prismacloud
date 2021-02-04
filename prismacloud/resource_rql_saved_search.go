@@ -44,6 +44,7 @@ func resourceRqlSavedSearch() *schema.Resource {
 			"search_type": {
 				Type:        schema.TypeString,
 				Computed:    true,
+				Optional:    true,
 				Description: "RQL type",
 			},
 			"saved": {
@@ -61,6 +62,7 @@ func parseRqlSearch(d *schema.ResourceData, id string) history.Query {
 		Name:        d.Get("name").(string),
 		Description: d.Get("description").(string),
 		Query:       d.Get("query").(string),
+		SearchType:  d.Get("search_type").(string),
 		Saved:       true,
 	}
 

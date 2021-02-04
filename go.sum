@@ -9,6 +9,8 @@ cloud.google.com/go/bigquery v1.0.1/go.mod h1:i/xbL2UlR5RvWAURpBYZTtm/cXjCha9lbf
 cloud.google.com/go/datastore v1.0.0/go.mod h1:LXYbyblFSglQ5pkeyhO+Qmw7ukd3C+pD7TKLgZqpHYE=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym/WlBOVXweHU+Q+/VP0lqqI8lqeDx9IjBqo=
+github.com/Hivebrite/prisma-cloud-go v0.3.10-0.20210204150433-f7d788c5ee21 h1:0FDbY9Rljxeyr+0M9bPsvTNObGP6e7Brr8B9f8W28nM=
+github.com/Hivebrite/prisma-cloud-go v0.3.10-0.20210204150433-f7d788c5ee21/go.mod h1:oPzCp3Q7HxC0xkWflyBdk2tm9kHzRDheiCnv3T0FCb8=
 github.com/agext/levenshtein v1.2.1/go.mod h1:JEDfjyjHDjOF/1e4FlBE/PkbqA9OfWu2ki2W0IB5558=
 github.com/agext/levenshtein v1.2.2 h1:0S/Yg6LYmFJ5stwQeRp6EeOcCbj7xiqQSdNelsXvaqE=
 github.com/agext/levenshtein v1.2.2/go.mod h1:JEDfjyjHDjOF/1e4FlBE/PkbqA9OfWu2ki2W0IB5558=
@@ -104,14 +106,6 @@ github.com/hashicorp/terraform-svchost v0.0.0-20191011084731-65d371908596/go.mod
 github.com/hashicorp/yamux v0.0.0-20180604194846-3520598351bb/go.mod h1:+NfK9FKeTrX5uv1uIXGdwYDTeHna2qgaIlx54MXqjAM=
 github.com/hashicorp/yamux v0.0.0-20181012175058-2f1d1f20f75d h1:kJCB4vdITiW1eC1vq2e6IsrXKrZit1bv/TDYFGMp4BQ=
 github.com/hashicorp/yamux v0.0.0-20181012175058-2f1d1f20f75d/go.mod h1:+NfK9FKeTrX5uv1uIXGdwYDTeHna2qgaIlx54MXqjAM=
-github.com/hivebrite/prisma-cloud-go v0.3.10-0.20201021123750-ecabe6dbd250 h1:wQ1AxF/ylhU5pqXGcclvXA2Wwb9cqyFRdziFr0Wj7WU=
-github.com/hivebrite/prisma-cloud-go v0.3.10-0.20201021123750-ecabe6dbd250/go.mod h1:oPzCp3Q7HxC0xkWflyBdk2tm9kHzRDheiCnv3T0FCb8=
-github.com/hivebrite/prisma-cloud-go v0.3.10-0.20201021160311-01bf0c7a74f9 h1:xBXH4ywA/jKPI0a96ljFEJRq4LI6NuNZRDIjlATBYJA=
-github.com/hivebrite/prisma-cloud-go v0.3.10-0.20201021160311-01bf0c7a74f9/go.mod h1:oPzCp3Q7HxC0xkWflyBdk2tm9kHzRDheiCnv3T0FCb8=
-github.com/hivebrite/prisma-cloud-go v0.3.10-0.20201022080149-9471379f9a37 h1:2H2TkbxVBtJUNpkUXSePFhfvPfFYr3+LY1Fxc81Lqp0=
-github.com/hivebrite/prisma-cloud-go v0.3.10-0.20201022080149-9471379f9a37/go.mod h1:oPzCp3Q7HxC0xkWflyBdk2tm9kHzRDheiCnv3T0FCb8=
-github.com/hivebrite/prisma-cloud-go v0.3.10-0.20201026134347-d8022fca5581 h1:KqTFHkXwi+n7zCvCtvYdljkvhdQnWWXs7YWqGWLvIDo=
-github.com/hivebrite/prisma-cloud-go v0.3.10-0.20201026134347-d8022fca5581/go.mod h1:oPzCp3Q7HxC0xkWflyBdk2tm9kHzRDheiCnv3T0FCb8=
 github.com/jmespath/go-jmespath v0.0.0-20160202185014-0b12d6b521d8/go.mod h1:Nht3zPeWKUH0NzdCt2Blrr5ys8VGpn0CEB0cQHVjt7k=
 github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af h1:pmfjZENx5imkbgOkpRUYLnmbU7UEFbjtDA2hxJ1ichM=
 github.com/jmespath/go-jmespath v0.0.0-20180206201540-c2b33e8439af/go.mod h1:Nht3zPeWKUH0NzdCt2Blrr5ys8VGpn0CEB0cQHVjt7k=
@@ -151,7 +145,6 @@ github.com/mitchellh/reflectwalk v1.0.1 h1:FVzMWA5RllMAKIdUSC8mdWo3XtwoecrH79BY7
 github.com/mitchellh/reflectwalk v1.0.1/go.mod h1:mSTlrgnPZtwu0c4WaC2kGObEpuNDbx0jmZXqmk4esnw=
 github.com/oklog/run v1.0.0 h1:Ru7dDtJNOyC66gQ5dQmaCa0qIsAUFY3sFpK1Xk8igrw=
 github.com/oklog/run v1.0.0/go.mod h1:dlhp/R75TPv97u0XWUtDeV/lRKWPKSdTuV0TZvrmrQA=
-github.com/paloaltonetworks/prisma-cloud-go v0.3.9/go.mod h1:B1WWrW8CE2xroRVyP2rUjsqmb1rWAzcxrOyNUvxYSfs=
 github.com/pierrec/lz4 v2.0.5+incompatible/go.mod h1:pdkljMzZIN41W+lC3N2tnIh5sFi+IEE17M5jbnwPHcY=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/posener/complete v1.1.1/go.mod h1:em0nMJCgc9GFtwrmVmEMR/ZL6WyhyjMBndrE9hABlRI=
@@ -256,6 +249,7 @@ google.golang.org/api v0.9.0/go.mod h1:o4eAsZoiT+ibD93RtjEohWalFOjRDx6CVaqeizhEn
 google.golang.org/appengine v1.1.0/go.mod h1:EbEs0AVv82hx2wNQdGPgUI5lhzA/G0D9YwlJXL52JkM=
 google.golang.org/appengine v1.4.0/go.mod h1:xpcJRLb0r/rnEns0DIKYYv+WjYCduHsrkT7/EB5XEv4=
 google.golang.org/appengine v1.5.0/go.mod h1:xpcJRLb0r/rnEns0DIKYYv+WjYCduHsrkT7/EB5XEv4=
+google.golang.org/appengine v1.6.1 h1:QzqyMA1tlu6CgqCDUtU9V+ZKhLFT2dkJuANu5QaxI3I=
 google.golang.org/appengine v1.6.1/go.mod h1:i06prIuMbXzDqacNJfV5OdTW448YApPu5ww/cMBSeb0=
 google.golang.org/genproto v0.0.0-20180817151627-c66870c02cf8/go.mod h1:JiN7NxoALGmiZfu7CAH4rXhgtRTLTxftemlI0sWmxmc=
 google.golang.org/genproto v0.0.0-20190307195333-5fe7a883aa19/go.mod h1:VzzqZJRnGkLBvHegQrXjBqPurQTc5/KpmUdxsrq26oE=
