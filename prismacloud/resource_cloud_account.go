@@ -324,10 +324,10 @@ func gcpCredentialsMatch(k, old, new string, d *schema.ResourceData) bool {
 		prev.ClientCertUrl == cur.ClientCertUrl)
 }
 
-func parseCloudAccount(d *schema.ResourceData) (string, string, interface{}) {
+func parseCloudAccount(d *schema.ResourceData, id string) (string, string, interface{}) {
 	if x := ResourceDataInterfaceMap(d, account.TypeAws); len(x) != 0 {
 		return account.TypeAws, x["name"].(string), account.Aws{
-			AccountId:      x["account_id"].(string),
+			AccountId:      id,
 			Enabled:        x["enabled"].(bool),
 			ExternalId:     x["external_id"].(string),
 			GroupIds:       SetToStringSlice(x["group_ids"].(*schema.Set)),
@@ -339,7 +339,7 @@ func parseCloudAccount(d *schema.ResourceData) (string, string, interface{}) {
 	} else if x := ResourceDataInterfaceMap(d, account.TypeAzure); len(x) != 0 {
 		return account.TypeAzure, x["name"].(string), account.Azure{
 			Account: account.CloudAccount{
-				AccountId:      x["account_id"].(string),
+				AccountId:      id,
 				Enabled:        x["enabled"].(bool),
 				GroupIds:       SetToStringSlice(x["group_ids"].(*schema.Set)),
 				Name:           x["name"].(string),
@@ -358,7 +358,7 @@ func parseCloudAccount(d *schema.ResourceData) (string, string, interface{}) {
 
 		return account.TypeGcp, x["name"].(string), account.Gcp{
 			Account: account.CloudAccount{
-				AccountId:      x["account_id"].(string),
+				AccountId:      id,
 				Enabled:        x["enabled"].(bool),
 				GroupIds:       SetToStringSlice(x["group_ids"].(*schema.Set)),
 				Name:           x["name"].(string),
@@ -372,7 +372,7 @@ func parseCloudAccount(d *schema.ResourceData) (string, string, interface{}) {
 		}
 	} else if x := ResourceDataInterfaceMap(d, account.TypeAlibaba); len(x) != 0 {
 		return account.TypeAlibaba, x["name"].(string), account.Alibaba{
-			AccountId: x["account_id"].(string),
+			AccountId: id,
 			GroupIds:  SetToStringSlice(x["group_ids"].(*schema.Set)),
 			Name:      x["name"].(string),
 			RamArn:    x["ram_arn"].(string),
@@ -450,7 +450,7 @@ func saveCloudAccount(d *schema.ResourceData, dest string, obj interface{}) {
 
 func createCloudAccount(d *schema.ResourceData, meta interface{}) error {
 	client := meta.(*pc.Client)
-	cloudType, name, obj := parseCloudAccount(d)
+	cloudType, name, obj := parseCloudAccount(d, "")
 
 	if err := account.Create(client, obj); err != nil {
 		return err
@@ -486,7 +486,8 @@ func readCloudAccount(d *schema.ResourceData, meta interface{}) error {
 func updateCloudAccount(d *schema.ResourceData, meta interface{}) error {
 	client := meta.(*pc.Client)
 
-	_, _, obj := parseCloudAccount(d)
+	_, id := IdToTwoStrings(d.Id())
+	_, _, obj := parseCloudAccount(d, id)
 
 	if err := account.Update(client, obj); err != nil {
 		return err
