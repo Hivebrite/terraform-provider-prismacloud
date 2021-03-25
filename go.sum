@@ -11,6 +11,8 @@ github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03
 github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym/WlBOVXweHU+Q+/VP0lqqI8lqeDx9IjBqo=
 github.com/Hivebrite/prisma-cloud-go v0.3.10-0.20210204150433-f7d788c5ee21 h1:0FDbY9Rljxeyr+0M9bPsvTNObGP6e7Brr8B9f8W28nM=
 github.com/Hivebrite/prisma-cloud-go v0.3.10-0.20210204150433-f7d788c5ee21/go.mod h1:oPzCp3Q7HxC0xkWflyBdk2tm9kHzRDheiCnv3T0FCb8=
+github.com/Hivebrite/prisma-cloud-go v0.3.10-0.20210325102847-a7c9432777c1 h1:T2FH/loAEVyevtm1KcHNsykwV+gjwl6xzX/90J3yuQg=
+github.com/Hivebrite/prisma-cloud-go v0.3.10-0.20210325102847-a7c9432777c1/go.mod h1:oPzCp3Q7HxC0xkWflyBdk2tm9kHzRDheiCnv3T0FCb8=
 github.com/agext/levenshtein v1.2.1/go.mod h1:JEDfjyjHDjOF/1e4FlBE/PkbqA9OfWu2ki2W0IB5558=
 github.com/agext/levenshtein v1.2.2 h1:0S/Yg6LYmFJ5stwQeRp6EeOcCbj7xiqQSdNelsXvaqE=
 github.com/agext/levenshtein v1.2.2/go.mod h1:JEDfjyjHDjOF/1e4FlBE/PkbqA9OfWu2ki2W0IB5558=

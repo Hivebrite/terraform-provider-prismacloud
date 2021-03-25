@@ -8,7 +8,7 @@ require (
 
 // go mod edit -replace github.com/paloaltonetworks/prisma-cloud-go=github.com/Hivebrite/prisma-cloud-go@SHA
 
-replace github.com/paloaltonetworks/prisma-cloud-go => github.com/Hivebrite/prisma-cloud-go v0.3.10-0.20210204150433-f7d788c5ee21
+replace github.com/paloaltonetworks/prisma-cloud-go => github.com/Hivebrite/prisma-cloud-go v0.3.10-0.20210325102847-a7c9432777c1
 
 // replace github.com/paloaltonetworks/prisma-cloud-go => ../prisma-cloud-go
 
